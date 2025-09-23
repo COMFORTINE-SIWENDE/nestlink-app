@@ -1,3 +1,4 @@
+// Alternative version with smaller, outlined button
 import { GradientText } from "@/components/ui/GradientText";
 import images from "@/constants/images";
 import { Link, Stack } from "expo-router";
@@ -10,7 +11,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function Index() {
   return (
     <>
-      {/* hide default header */}
       <Stack.Screen options={{ headerShown: false }} />
       <SafeAreaView className="flex-1 bg-primary-100 px-6 justify-center">
         <StatusBar backgroundColor="#D6EBF6" barStyle="dark-content" />
@@ -22,7 +22,6 @@ export default function Index() {
           transition={{ type: "timing", duration: 800 }}
           className="items-center mb-10"
         >
-          {/* Main Logo */}
           <View className="w-40 h-40 mb-6 items-center justify-center">
             <Image
               source={images.nl}
@@ -39,11 +38,11 @@ export default function Index() {
               type: "timing",
               duration: 1000,
               easing: Easing.inOut(Easing.ease),
-              loop: true, // vanish → reappear
+              loop: true,
             }}
           >
             <GradientText
-              colors={["#34d399", "#3b82f6", "#9333ea"]} // green → blue → purple
+              colors={["#34d399", "#3b82f6", "#9333ea"]}
               style={{
                 fontSize: 36,
                 fontWeight: "bold",
@@ -64,8 +63,8 @@ export default function Index() {
           </MotiText>
         </MotiView>
 
-        {/* Buttons */}
-        <View className="w-full space-y-4 mb-8">
+        {/* Main Buttons */}
+        <View className="w-full space-y-4 mb-6">
           <MotiView
             from={{ opacity: 0, translateY: 20 }}
             animate={{ opacity: 1, translateY: 0 }}
@@ -94,6 +93,25 @@ export default function Index() {
             </Link>
           </MotiView>
         </View>
+
+        {/* Property Registration Button - More Subtle */}
+        <MotiView
+          from={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1400 }}
+          className="mb-6"
+        >
+          <Link href="/register-property" asChild>
+            <TouchableOpacity className="bg-white p-4 rounded-2xl shadow-sm border border-primary-200">
+              <Text className="text-primary-400 text-base font-rubik-semibold text-center">
+                🏠 Register Your Property with Nestlink
+              </Text>
+              <Text className="text-dark-300 text-xs font-rubik text-center mt-1">
+                List your property and start earning today
+              </Text>
+            </TouchableOpacity>
+          </Link>
+        </MotiView>
 
         {/* Secondary Logo */}
         <MotiView
