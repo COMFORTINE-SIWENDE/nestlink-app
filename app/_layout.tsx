@@ -1,6 +1,3 @@
-import { AuthProvider } from "@/context/AuthContext";
-import { ListingsProvider } from "@/context/ListingsContext";
-import { ProcurementProvider } from "@/context/ProcurementContext";
 import { FontAwesome5, Foundation, Ionicons } from "@expo/vector-icons"; // 👈 import your icons here
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
@@ -10,6 +7,10 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { AuthProvider } from "@/context/AuthContext";
+import { ListingsProvider } from "@/context/ListingsContext";
+import { ProcurementProvider } from "@/context/ProcurementContext";
+import { ChatAgentProvider } from "../context/ChatAgentContext";
 import "./global.css";
 
 // Keep splash screen visible while fonts load
@@ -63,13 +64,15 @@ export default function RootLayout() {
         <AuthProvider>
           <ListingsProvider>
             <ProcurementProvider>
-              <StatusBar style="auto" />
-              <Stack
-                screenOptions={{
-                  headerShown: false,
-                  contentStyle: { backgroundColor: "#000" },
-                }}
-              />
+              <ChatAgentProvider>
+                <StatusBar style="auto" />
+                <Stack
+                  screenOptions={{
+                    headerShown: false,
+                    contentStyle: { backgroundColor: "#000" },
+                  }}
+                />
+              </ChatAgentProvider>
             </ProcurementProvider>
           </ListingsProvider>
         </AuthProvider>

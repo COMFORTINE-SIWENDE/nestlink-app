@@ -1,3 +1,4 @@
+import ChatFloatingButton from "@/components/ChatFloatingButton";
 import Search from "@/components/Search";
 import { Card, FeatureCard } from "@/components/ui/Cards";
 import Filters from "@/components/ui/Filters";
@@ -84,6 +85,7 @@ export default function ExploreScreen() {
           </View>
         }
       />
+      <ChatFloatingButton />
     </SafeAreaView>
   );
 }

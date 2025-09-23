@@ -3,7 +3,7 @@ import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { useAuth } from "@/context/AuthContext";
 import { useProcurement } from "@/context/ProcurementContext";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import React from "react";
 import {
   Alert,
@@ -228,19 +228,21 @@ const ProcureScreen = () => {
       </ScrollView>
 
       {/* Sticky Checkout Button */}
-      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-light-200 px-5 py-4">
-        <TouchableOpacity
-          onPress={handleCheckout}
-          className="bg-primary-300 py-4 rounded-lg items-center"
-        >
-          <Text className="text-white text-lg font-rubik-semibold">
-            {user ? "Proceed to Payment" : "Sign In to Checkout"}
-          </Text>
-          <Text className="text-light-400 font-rubik-semibold mt-1">
-            Ksh. {(total * 1.05).toLocaleString()} • {itemCount}{" "}
-            {itemCount === 1 ? "item" : "items"}
-          </Text>
-        </TouchableOpacity>
+      <View className="absolute bottom-11 left-0 right-0 bg-white border-t border-light-200 px-5 py-8">
+        <Link href="/payment" asChild>
+          <TouchableOpacity
+            onPress={handleCheckout}
+            className="bg-primary-300 py-4 rounded-lg items-center"
+          >
+            <Text className="text-white text-lg font-rubik-semibold">
+              {user ? "Proceed to Payment" : "Sign In to Checkout"}
+            </Text>
+            <Text className="text-light-400 font-rubik-semibold mt-1">
+              Ksh. {(total * 1.05).toLocaleString()} • {itemCount}{" "}
+              {itemCount === 1 ? "item" : "items"}
+            </Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </SafeAreaView>
   );

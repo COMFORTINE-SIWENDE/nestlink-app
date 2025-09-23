@@ -1,24 +1,24 @@
 // app/property-details.tsx
+import { LinearGradient } from "expo-linear-gradient";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-  View,
-  Text,
   Image,
-  ScrollView,
-  TouchableOpacity,
-  Share,
   Linking,
+  ScrollView,
+  Share,
+  Text,
+  TouchableOpacity,
   useWindowDimensions,
+  View,
 } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
 
+import ChatFloatingButton from "@/components/ChatFloatingButton";
+import { facilities } from "@/constants/data";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import { facilities } from "@/constants/data";
-import { Listing } from "@/types";
 import { useProcurement } from "@/context/ProcurementContext";
+import { Listing } from "@/types";
 
 // Helper function to get image source
 const getImageSource = (imageName: string) => {
@@ -371,6 +371,7 @@ const PropertyDetails = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <ChatFloatingButton />
     </View>
   );
 };

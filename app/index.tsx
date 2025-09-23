@@ -71,7 +71,7 @@ export default function Index() {
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ delay: 900 }}
           >
-            <Link href="/(auth)/login" asChild>
+            <Link href="/login" asChild>
               <TouchableOpacity className="bg-primary-400 p-5 rounded-2xl shadow-lg">
                 <Text className="text-white text-lg font-rubik-semibold text-center">
                   Get Started
@@ -85,7 +85,7 @@ export default function Index() {
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ delay: 1200 }}
           >
-            <Link href="./reach-us" asChild>
+            <Link href="/reach-us" asChild>
               <TouchableOpacity className="border-2 border-primary-400 p-5 rounded-2xl">
                 <Text className="text-primary-400 text-lg font-rubik-semibold text-center">
                   Learn More
@@ -105,7 +105,7 @@ export default function Index() {
           <View className="w-24 h-24 mb-4">
             <Image
               source={require("@/assets/images/nestlink.png")}
-              className="w-full h-full rounded-full"
+              className="w-full h-[40%]"
               resizeMode="contain"
             />
           </View>
