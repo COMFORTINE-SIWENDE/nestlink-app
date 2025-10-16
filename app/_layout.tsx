@@ -1,4 +1,5 @@
-import { FontAwesome5, Foundation, Ionicons } from "@expo/vector-icons"; // 👈 import your icons here
+// app/_layout.tsx
+import { FontAwesome5, Foundation, Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
@@ -7,17 +8,15 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { AuthProvider } from "@/context/AuthContext";
-import { ListingsProvider } from "@/context/ListingsContext";
-import { ProcurementProvider } from "@/context/ProcurementContext";
-import { ChatAgentProvider } from "../context/ChatAgentContext";
-import "./global.css";
+import { AuthProvider } from "../context/AuthContext";
+import { ListingsProvider } from "../context/ListingsContext";
+import { PaymentProvider } from "../context/PaymentContext";
+import { ProcurementProvider } from "../context/ProcurementContext";
+import "./globals.css";
 
-// Keep splash screen visible while fonts load
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  // Load your custom fonts
   const [rubikFontsLoaded] = useFonts({
     "Rubik-Bold": require("../assets/fonts/Rubik-Bold.ttf"),
     "Rubik-ExtraBold": require("../assets/fonts/Rubik-ExtraBold.ttf"),
@@ -27,10 +26,8 @@ export default function RootLayout() {
     "Rubik-SemiBold": require("../assets/fonts/Rubik-SemiBold.ttf"),
   });
 
-  // Track if vector icon fonts are also loaded
   const [iconsLoaded, setIconsLoaded] = useState(false);
 
-  // Preload vector icon fonts
   useEffect(() => {
     async function loadIcons() {
       try {
@@ -47,7 +44,6 @@ export default function RootLayout() {
     loadIcons();
   }, []);
 
-  // Hide splash once everything is loaded
   useEffect(() => {
     if (rubikFontsLoaded && iconsLoaded) {
       SplashScreen.hideAsync();
@@ -58,21 +54,30 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {" "}
-      {/* ✅ Added */}
       <SafeAreaProvider>
         <AuthProvider>
           <ListingsProvider>
             <ProcurementProvider>
-              <ChatAgentProvider>
+              <PaymentProvider>
                 <StatusBar style="auto" />
                 <Stack
                   screenOptions={{
                     headerShown: false,
-                    contentStyle: { backgroundColor: "#000" },
+                    contentStyle: { backgroundColor: "#fff" },
                   }}
-                />
-              </ChatAgentProvider>
+                >
+                  <Stack.Screen name="(tabs)" />
+                  <Stack.Screen name="property-details" />
+                  <Stack.Screen name="register-property" />
+                  <Stack.Screen name="property-registration" />
+                  <Stack.Screen name="owner-dashboard" />
+                  <Stack.Screen name="auth-choice" />
+                  <Stack.Screen name="become-owner" />
+                  <Stack.Screen name="sign-in" />
+                  <Stack.Screen name="payment" />
+                  <Stack.Screen name="edit-property/[id]" />
+                </Stack>
+              </PaymentProvider>
             </ProcurementProvider>
           </ListingsProvider>
         </AuthProvider>

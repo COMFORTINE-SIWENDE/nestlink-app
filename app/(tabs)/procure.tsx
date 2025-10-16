@@ -86,7 +86,7 @@ const ProcureScreen = () => {
             Properties you add for checkout will appear here
           </Text>
           <TouchableOpacity
-            onPress={() => router.push("./profile")}
+            onPress={() => router.push("./explore")}
             className="bg-primary-300 px-6 py-3 rounded-lg mt-6"
           >
             <Text className="text-white font-rubik-semibold">

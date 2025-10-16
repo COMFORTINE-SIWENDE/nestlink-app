@@ -95,13 +95,13 @@ export default function TabLayout() {
         }}
       />
 
-      {/* MESSAGES */}
+      {/* RELOCATING */}
       <Tabs.Screen
-        name="messages"
+        name="relocate"
         options={{
-          title: "Messages",
+          title: "Relocate",
           tabBarIcon: ({ focused }) => (
-            <TabIcon icon={icons.chat} focused={focused} title="Messages" />
+            <TabIcon icon={icons.truck} focused={focused} title="Relocate" />
           ),
         }}
       />

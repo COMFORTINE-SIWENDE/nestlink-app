@@ -9,6 +9,9 @@ import nl from "@/assets/images/nl.png";
 import noResult from "@/assets/images/no-result.png";
 import onboarding from "@/assets/images/onboarding.png";
 import whiteGradient from "@/assets/images/white-gradient.png";
+import pickup from "@/assets/images/pickup.png";
+import van from "@/assets/images/van.png";
+import truck from "@/assets/images/truck.png";
 
 export default {
   onboarding,
@@ -22,4 +25,7 @@ export default {
   noResult,
   nl,
   nestlink,
+  pickup,
+  van,
+  truck,
 };

@@ -36,9 +36,16 @@ import send from "@/assets/icons/send.png";
 import shield from "@/assets/icons/shield.png";
 import star from "@/assets/icons/star.png";
 import swim from "@/assets/icons/swim.png";
+import truck from "@/assets/icons/truck.png";
+import upload from "@/assets/icons/upload.png";
 import wallet from "@/assets/icons/wallet.png";
 import wifi from "@/assets/icons/wifi.png";
-import upload from "@/assets/icons/upload.png";
+import success from "@/assets/icons/success.png";
+import error from "@/assets/icons/error.png";
+import clock from "@/assets/icons/clock.png";
+import support from "@/assets/icons/support.png";
+import pickup from "@/assets/icons/pickup.png";
+import van from "@/assets/icons/van.png";
 
 export default {
   google,
@@ -82,4 +89,11 @@ export default {
   procurement,
   delete: deleteIcon,
   upload,
+  truck,
+  success,
+  error,
+  clock,
+  support,
+  pickup,
+  van,
 };

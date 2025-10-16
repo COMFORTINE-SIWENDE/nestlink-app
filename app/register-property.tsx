@@ -73,7 +73,6 @@ const RegisterPropertyScreen = () => {
               our platform
             </Text>
             <View className="">
-              {" "}
               <Link href="/property-registration" asChild>
                 <TouchableOpacity className="bg-dark-400  py-3 px-4 rounded">
                   <Text className="text-light-400 font-rubik-bold text-center">
